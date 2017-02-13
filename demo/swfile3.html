@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>首页</title>
+    <link rel="stylesheet" href="media/template.css" />
+    <script src="media/jquery-1.9.0.js"></script>
+    <script src="swfile/swfile.js"></script>
+    <style type="text/css">
+    .xxj {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+    }
+    #custom_css {background-color: lightGreen;}
+    #custom_css2 {background-color: pink;}
+    </style>
+    <script type="text/javascript">
+    $(function() {
+        SWFile({
+            server : "http://192.168.1.149:8780/fs",
+            ids : [
+               '00453f6705f444329d8ab7f1e61d1843',
+               '0ed4c405baa84f208f6f4ba47789d405',
+               '444dsaf'
+            ],
+            ready : function(f) {
+                console.log(f.cache);
+                console.log(f.files);
+                console.log(f.ftype);
+                f.get("0ed4c405baa84f208f6f4ba47789d405", function(file) {
+                    console.log(file);
+                });
+                f.upload({
+                    target : $(".xxj"),
+                    project : "swfile",
+                    module : "test",
+                    beforeUpload : function(input) {
+                        console.log(input);
+                        return true;
+                    },
+                    onComplete : function(files) {
+                        console.log(files);
+                    },
+                    onProgress : function(done, total) {
+                        console.log(done + " / " + total);
+                    }
+                });
+                //f.download("0ed4c405baa84f208f6f4ba47789d405");
+                /* f.remove("0ed4c405baa84f208f6f4ba47789d405", function(file) {
+                    console.log(file);
+                }); */
+                //f.synchronize();
+                //console.log(f);
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <form action="">
+        <div id="custom_css" class="xxj"></div>
+        <div id="custom_css2" class="xxj"></div>
+    </form>
+</body>
+</html>

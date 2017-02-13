@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+/* custom style */
+.sowell-file.blue li {
+	background-color: #fff;
+}
+.sowell-file.blue span {
+	border-color: #60b8d1;
+}
+.sowell-file.blue i a {
+	background-color: #000;
+}
+.sowell-file.blue li.add b {
+	color: #fff;
+	background-color: #60b8d1;
+}

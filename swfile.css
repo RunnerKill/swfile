@@ -1,0 +1,156 @@
+@charset "utf-8";
+
+/* 附件列表 */
+.sowell-file {
+	display: inline-block;
+	clear: both;
+}
+.sowell-file li {
+	position: relative;
+	background-color: #fff;
+	float: left;
+	width: 150px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.sowell-file b, .sowell-file b img, .sowell-file .error {
+	display: block;
+	outline: none;
+	width: 100%;
+	height: 120px;
+}
+.sowell-file .error {
+	background: url("images/no-pic.jpg") no-repeat center;
+}
+/* 缩略图 */
+.sowell-file b {
+	cursor: pointer;
+	background-position: center center;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+}
+.sowell-file b.other {background-image: url("images/none.png");cursor:default;}
+.sowell-file b.word {background-image: url("images/word.png");}
+.sowell-file b.excel {background-image: url("images/excel.png");}
+.sowell-file b.audio {background-image: url("images/audio.png");}
+.sowell-file b.video {background-image: url("images/video.png");}
+/* 文件名 */
+.sowell-file span {
+	display: block;
+	border: 1px solid #e6e6e6;
+	text-align: center;
+	line-height: 29px;
+	margin-top: -1px;
+	padding: 0 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+/* 工具按钮 */
+.sowell-file i {
+	display: none;
+	position: absolute;
+	left: 0;
+	bottom: 30px;
+	z-index: 9;
+	width: 100%;
+	height: 30px;
+}
+.sowell-file li:hover i {
+	display: block;
+}
+.sowell-file i>a {
+	display: block;
+	float: left;
+	width: 50%;
+	height: 100%;
+	background-color: #000;
+  	opacity: 0.6;
+  	filter: alpha(opacity=0.6);
+  	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-background-size: 15px 15px;
+	background-size: 15px 15px;
+}
+.sowell-file i>a:hover {
+  	opacity: 1;
+  	filter: alpha(opacity=1);
+  	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+.sowell-file i>a.download {background-image: url("images/icon-download.png");}
+.sowell-file i>a.delete {background-image: url("images/icon-trash.png");}
+/* 添加按钮 */
+.sowell-file li.add {
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.sowell-file li.add>b {
+    position: relative;
+    display: block;
+    height: 150px;
+    color: #fff;
+    background-color: #e6e6e6;
+    text-align: center;
+    font-weight: normal;
+    cursor: default;
+    overflow: hidden;
+}
+.sowell-file li.add>b:before {
+    content: "+";
+    font-size: 80px;
+    line-height: 140px;
+}
+/* 进度条 */
+.sowell-file li.add>.bar {
+    display: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 20px;
+    line-height: 20px;
+}
+.sowell-file li.add>.bar>.progress {
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    background-color:#cccccc;
+}
+.sowell-file li.add>.bar>.text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    text-align: center;
+}
+/* 请求中样式 */
+.sowell-file.loading li.add>b:before {
+	content: "加载中...";
+	font-size: 14px;
+	line-height: 150px;
+}
+.sowell-file.loading li.add>b>input[type="file"] {
+	display: none;
+}
+.sowell-file.loading li.add>b>a {
+	display: none;
+}
+.sowell-file.loading.load li.add>b:before {content: "加载中...";}
+.sowell-file.loading.upload li.add>b:before {content: "上传中...";}
+/* 只读样式 */
+.sowell-file.readonly li.add {
+	display: none !important;
+}
+.sowell-file.readonly i>a.download {
+	width: 100%;
+}
+/* 必填样式 */
+.sowell-file.required li.add>b{
+    background: #e6e6e6 url("images/bg_required.png") no-repeat right top;
+}

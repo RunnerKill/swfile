@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>首页</title>
+    <link rel="stylesheet" href="media/template.css" />
+    <script type="text/javascript" src="media/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="swfile/swfile.js"></script>
+    <script type="text/javascript" src="swfile/swfile.ext.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $(".swfile").swfile({
+            server : "http://192.168.1.149:8780/fs",
+            project : "swfile",
+            onPreview : function(url, funDownload, funDelete) {
+                window.open(url);
+            },
+            onError : function(msg) {
+                alert(msg);
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <form action="">
+        <p>
+            <span class="swfile required"
+                data-fids="444dsaf,sdsadasd21321,dsafdsfe123"
+                data-module="module2" data-type="image,video,audio"></span>
+        </p>
+        <p>
+            <span class="swfile"
+                data-limit="1"
+                data-fids="4asas,234fds,556"
+                data-module="module1" data-type="video,audio"></span>
+        </p>
+        <p>
+            <span class="swfile"
+                data-fids="asas,f"
+                data-module="module3" data-type="word,excel"></span>
+        </p>
+    </form>
+</body>
+</html>
